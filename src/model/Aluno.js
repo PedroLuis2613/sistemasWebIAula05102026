@@ -18,7 +18,7 @@ const Aluno = sequelize.define('Aluno', {
     },
     ativo: {
         type: DataTypes.BOOLEAN,
-        defaulValue: true
+        defaultValue: true
     }
 });
 
