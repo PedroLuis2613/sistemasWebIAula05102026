@@ -8,20 +8,18 @@ async function executarApp() {
         await sequelize.sync({ force:true });
         console.log('Tabelas sincronizadas com sucesso!')
 
-        // ===========================================
+        
         // CREATE (Inserir registros)
-        // ===========================================
 const aluno1 = await Aluno.create({
-    nome: 'Ana Silva',
-    matricula: '202789',
-    curso: 'Desenvolvimento de Sistemas'
+    nome: 'Pedro Luis',
+    matricula: '202901',
+    curso: 'Informática para Internet'
 });
 
 console.log(`Aluno criado: ${aluno1.nome}`);
 
-        // ===========================================
+        
         // READ (Buscar registros)
-        // ===========================================
 
         // Buscar Todos
 const todosAlunos = await Aluno.findAll();
@@ -31,27 +29,25 @@ console.log(`Temos ${todosAlunos.length} alunos cadastrados`);
         
         // Buscar com condição WHERE
 const umAluno = await Aluno.findOne({
-    where: { matricula: '202789' }
+       where: { matricula: '202901' }
 });
 
 console.log(`Busca Especifica: ${umAluno.nome} está no curso ${umAluno.curso}`);
         
 
-        // ======================================
-        // UPDATE (Atualizar registros)
-        // ======================================
+        
+        // UPDATE (Atualizar registros) 
 await Aluno.update(
-    { curso: 'Engenharia de Software' },
-    { where: { matricula: '202789' } }
+    { curso: 'Desenvolvimento de Sistemas' },
+    { where: { matricula: '202901' } }
 );
 
 console.log('Curso Atualizado');
 
-        // ======================================
+        
         // DELETE (Remover registros)
-        // ======================================
 await Aluno.destroy({
-        where: { matricula: '202789' }
+        where: { matricula: '202901' }
 });
 
 console.log('Registro deletado');
